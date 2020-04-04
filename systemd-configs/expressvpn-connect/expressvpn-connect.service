@@ -1,0 +1,13 @@
+[Unit]
+Description=Service which connects  expressvpn
+Wants=expressvpn.service
+After=expressvpn.service
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi
+ExecStart=/home/pi/bash-scripts/expressvpn-connect.sh
+
+[Install]
+WantedBy=expressvpn.service
