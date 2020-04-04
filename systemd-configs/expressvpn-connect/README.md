@@ -1,4 +1,4 @@
-# Setup expressvpn auto connect after reboot service
+# Setup expressvpn client auto connect
 
 ## Background
 After ExpressVPN binary is installed, it automatically installs a service called `expressvpn`. But this `expressvpn`
