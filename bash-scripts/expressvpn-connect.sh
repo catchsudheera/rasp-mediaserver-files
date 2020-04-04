@@ -1,6 +1,7 @@
 #!/bin/bash
 
-rm /var/log/expressvpn-start/connet.log 
+rm -rf /var/log/expressvpn-start/connet.log
+mkdir -p /var/log/expressvpn-start/
 echo "starting" > /var/log/expressvpn-start/connet.log
 until service expressvpn status 1>/dev/null
 do

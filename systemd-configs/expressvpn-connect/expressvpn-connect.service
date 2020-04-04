@@ -1,5 +1,5 @@
 [Unit]
-Description=Service which connects  expressvpn
+Description=ExpressVPN client connect service
 Wants=expressvpn.service
 After=expressvpn.service
 
@@ -7,7 +7,7 @@ After=expressvpn.service
 Type=simple
 User=pi
 WorkingDirectory=/home/pi
-ExecStart=/home/pi/bash-scripts/expressvpn-connect.sh
+ExecStart=/home/pi/rasp-mediaserver-files/bash-scripts/expressvpn-connect.sh
 
 [Install]
 WantedBy=expressvpn.service
