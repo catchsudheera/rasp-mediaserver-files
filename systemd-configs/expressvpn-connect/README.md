@@ -56,8 +56,7 @@ or try executing [expressvpn-connect.sh](../../bash-scripts/expressvpn-connect.s
 
 
 ## Useful articles
-
-[1] https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files
-[2] https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units
-[3] https://www.freedesktop.org/software/systemd/man/systemd.service.html
+1. https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files
+2. https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units
+3. https://www.freedesktop.org/software/systemd/man/systemd.service.html
 
