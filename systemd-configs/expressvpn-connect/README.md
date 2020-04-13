@@ -1,4 +1,11 @@
-# Setup expressvpn client auto connect
+# Setup ExpressVPN client auto connect
+
+## Important
+Current version of ExpressVPN client for linux has built in support for this. If following command works for you
+then no need to follow the rest of the document
+```shell script
+expressvpn autoconnect true
+```
 
 ## Background
 After ExpressVPN binary is installed, it automatically installs a service called `expressvpn`. But this `expressvpn`
