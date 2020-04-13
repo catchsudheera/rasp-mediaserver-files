@@ -24,5 +24,5 @@ IS_CONNECTED=$(echo "$RES" | grep -c "Connected to")
 if [ "$IS_CONNECTED" -eq 0 ]; then
   ls $ALERTED_FILE || (send_email_alert "$RES" && touch $ALERTED_FILE)
 else
-  rm $ALERTED_FILE
+  rm -f $ALERTED_FILE
 fi
