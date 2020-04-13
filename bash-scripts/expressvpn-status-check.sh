@@ -9,7 +9,8 @@ CONFIG_DIR=~/.expressvpn
 ALERTED_FILE=$CONFIG_DIR/alerted
 
 function send_email_alert() {
-  SUBJECT="[ALERT] MediaBox ExpressVPN connection is down"
+  TIMESTAMP=$(date '+%Y_%m_%d_%H_%M')
+  SUBJECT="[ALERT][$TIMESTAMP] MediaBox ExpressVPN connection is down"
   BODY="Your Raspberry Pi MediaBox VPN connection is down. Status response : $1"
   TO="<admin-email>@gmail.com"
 
