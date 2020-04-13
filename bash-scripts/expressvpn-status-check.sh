@@ -22,7 +22,9 @@ RES=$(expressvpn status)
 IS_CONNECTED=$(echo "$RES" | grep -c "Connected to")
 
 if [ "$IS_CONNECTED" -eq 0 ]; then
+  echo "$(date) : Not connected. $RES"
   ls $ALERTED_FILE || (send_email_alert "$RES" && touch $ALERTED_FILE)
 else
   rm -f $ALERTED_FILE
+  echo "$(date) : Connected"
 fi
