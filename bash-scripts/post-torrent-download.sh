@@ -1,6 +1,6 @@
 #!/bin/bash
 
-find /$TR_TORRENT_DIR/$TR_TORRENT_NAME -name "*.rar" -execdir 7z e "{}" \; && rm -r /$TR_TORRENT_DIR/$TR_TORRENT_NAME/*.r* && echo "Extracted"  >> ~/post-torrent-download-error.log
+find /"$TR_TORRENT_DIR"/"$TR_TORRENT_NAME" -name "*.rar" -execdir 7z e "{}" \; && echo "Extracted"  >> ~/post-torrent-download-error.log
 
 TORRENT_PATH=$TR_TORRENT_DIR/$TR_TORRENT_NAME
 if [ -z "$TR_TORRENT_DIR" ]
