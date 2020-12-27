@@ -19,6 +19,14 @@ function send_email_alert() {
 
 mkdir -p $CONFIG_DIR
 
+wget --spider --quiet google.com
+if [ "$?" != 0 ]; then
+  echo "can't reach google..! Reconnecting expressvpn"
+  expressvpn refresh
+  expressvpn disconnect
+  expressvpn connect
+fi
+
 RES=$(expressvpn status)
 IS_CONNECTED=$(echo "$RES" | grep -c "Connected to")
 
