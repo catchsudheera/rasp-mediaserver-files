@@ -1,0 +1,12 @@
+[Unit]
+Description=Media Share mount
+After=network.target
+
+[Mount]
+What=<address-to-file-server>:<path-to-the-remote-dir>
+Where=<path-to-the-local-dir>
+Type=nfs
+Options=defaults,users
+
+[Install]
+WantedBy=multi-user.target
