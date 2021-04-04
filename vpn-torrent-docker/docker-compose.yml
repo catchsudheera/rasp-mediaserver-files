@@ -1,0 +1,44 @@
+version: "3"
+services:
+  vpn:
+    image: bubuntux/nordvpn
+    container_name: vpn
+    network_mode: bridge
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    sysctls:
+      - net.ipv4.conf.all.rp_filter=2
+    devices:
+      - /dev/net/tun
+    environment:                # Review https://github.com/bubuntux/nordvpn#environment-variables
+      - USER=${VPN_USERNAME}
+      - "PASS=${VPN_PASSWORD}"
+      - CONNECT=Netherlands
+      - TECHNOLOGY=OpenVPN
+      - PROTOCOL=TCP
+      - OBFUSCATE=Enable
+      - NETWORK=${NETWORK}
+    ports:
+      - 9091:9091
+    restart: unless-stopped
+  transmission:
+    image: ghcr.io/linuxserver/transmission
+    container_name: transmission
+    environment:
+      - PUID=1003
+      - PGID=1002
+      - TZ=Europe/Amsterdam
+      - USER=${TRANSMISSION_USERNAME}
+      - PASS=${TRANSMISSION_PASSWORD}
+      - WHITELIST=${WHITELIST}
+    volumes:
+      - /home/media-user/.transmission-box/watch:/watch
+      - /home/media-user/.transmission-box/config:/config
+      - /mnt/media_share/downloads/other:/downloads
+      - /mnt/media_share:/mnt/media_share
+    restart: unless-stopped
+    network_mode: service:vpn
+    depends_on:
+      vpn:
+        condition: service_healthy
